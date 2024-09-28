@@ -1,0 +1,62 @@
+           _                 _    
+  __ _  __| |_ __ __ _ _ __ | |_  
+ / _` |/ _` | '__/ _` | '_ \| __| 
+| (_| | (_| | | | (_| | | | | |_  
+ \__, |\__,_|_|  \__,_|_| |_|\__| 
+    |_|                           
+
+Version: 1.11.4, build: d8b6e4a0
+Access web UI at http://localhost:6333/dashboard
+
+2024-09-28T17:43:18.574530Z  INFO storage::content_manager::consensus::persistent: Loading raft state from ./storage/raft_state.json    
+2024-09-28T17:43:18.574763Z DEBUG storage::content_manager::consensus::persistent: State: Persistent { state: RaftState { hard_state: HardState { term: 0, vote: 0, commit: 0 }, conf_state: ConfState { voters: [6726346491932764], learners: [], voters_outgoing: [], learners_next: [], auto_leave: false } }, latest_snapshot_meta: SnapshotMetadataSer { term: 0, index: 0 }, apply_progress_queue: EntryApplyProgressQueue(None), peer_address_by_id: RwLock { data: {} }, peer_metadata_by_id: RwLock { data: {} }, cluster_metadata: {}, this_peer_id: 6726346491932764, path: "./storage/raft_state.json", dirty: false }    
+2024-09-28T17:43:18.618877Z  INFO storage::content_manager::toc: Loading collection: default    
+2024-09-28T17:43:18.729198Z  INFO collection::shards::local_shard: Recovering collection default: 0/1 (0%)    
+2024-09-28T17:43:18.753283Z  INFO collection::shards::local_shard: Recovered collection default: 1/1 (100%)    
+2024-09-28T17:43:18.755419Z DEBUG qdrant: Loaded collection: default    
+2024-09-28T17:43:18.755439Z  INFO qdrant: Distributed mode disabled    
+2024-09-28T17:43:18.755466Z  INFO qdrant: Telemetry reporting disabled    
+2024-09-28T17:43:18.755672Z DEBUG qdrant: Waiting for thread web to finish    
+2024-09-28T17:43:18.756295Z  WARN qdrant::actix::web_ui: Static content folder for Web UI './static' does not exist    
+2024-09-28T17:43:18.756909Z  INFO qdrant::actix: TLS disabled for REST API    
+2024-09-28T17:43:18.756960Z  INFO qdrant::actix: Qdrant HTTP listening on 6333    
+2024-09-28T17:43:18.756973Z  INFO actix_server::builder: Starting 11 workers
+2024-09-28T17:43:18.756981Z  INFO actix_server::server: Actix runtime found; starting in Actix runtime
+2024-09-28T17:43:18.765329Z  INFO qdrant::tonic: Qdrant gRPC listening on 6334    
+2024-09-28T17:43:18.765369Z  INFO qdrant::tonic: TLS disabled for gRPC API    
+2024-09-28T17:43:28.592670Z  INFO storage::content_manager::toc::collection_meta_ops: Deleting collection default    
+2024-09-28T17:43:28.594318Z DEBUG collection::update_handler: Stopping flush worker.    
+2024-09-28T17:43:28.601794Z  INFO actix_web::middleware::logger: 127.0.0.1 "DELETE /collections/default HTTP/1.1" 200 48 "-" "curl/7.81.0" 0.009291    
+2024-09-28T17:43:53.024507Z DEBUG storage::content_manager::snapshots::recover: Downloading snapshot from file:///home/san/gaianet/qdrant/snapshots/default/default.snapshot to /home/san/gaianet/qdrant/./snapshots/tmp/download-vDodyv    
+2024-09-28T17:43:53.024551Z DEBUG storage::content_manager::snapshots::recover: Snapshot downloaded to /home/san/gaianet/qdrant/snapshots/default/default.snapshot    
+2024-09-28T17:43:53.024773Z DEBUG storage::content_manager::snapshots::recover: Recovering collection default from snapshot /home/san/gaianet/qdrant/snapshots/default/default.snapshot    
+2024-09-28T17:43:53.024780Z DEBUG storage::content_manager::snapshots::recover: Unpacking snapshot to /home/san/gaianet/qdrant/./storage/tmp/col-default-recovery-nfmdCe    
+2024-09-28T17:43:55.331010Z DEBUG storage::content_manager::snapshots::recover: Collection default does not exist, creating it    
+2024-09-28T17:43:55.331074Z  INFO storage::content_manager::toc::collection_meta_ops: Creating collection default    
+2024-09-28T17:43:55.683199Z DEBUG collection::collection: Changing shard default:0 replica state from Some(Initializing) to Active    
+2024-09-28T17:43:55.683222Z DEBUG collection::shards::replica_set: Changing local shard default:0 state from Some(Initializing) to Active    
+2024-09-28T17:43:55.688312Z DEBUG storage::content_manager::snapshots::recover: Recovering shard 0 from /home/san/gaianet/qdrant/./storage/tmp/col-default-recovery-nfmdCe/0    
+2024-09-28T17:43:55.688699Z DEBUG collection::update_handler: Stopping flush worker.    
+2024-09-28T17:43:55.933796Z  INFO collection::shards::local_shard: Recovering collection default: 0/30 (0%)    
+2024-09-28T17:43:56.019553Z  INFO collection::shards::local_shard: Recovered collection default: 30/30 (100%)    
+2024-09-28T17:43:56.022507Z DEBUG storage::content_manager::snapshots::recover: Activating shard 0 of collection default locally    
+2024-09-28T17:43:56.022540Z DEBUG collection::collection: Changing shard default:0 replica state from Some(Active) to Active    
+2024-09-28T17:43:56.022550Z DEBUG collection::shards::replica_set: Changing local shard default:0 state from Some(Active) to Active    
+2024-09-28T17:43:56.029270Z  INFO actix_web::middleware::logger: 127.0.0.1 "POST /collections/default/snapshots/upload?priority=snapshot HTTP/1.1" 200 48 "-" "curl/7.81.0" 3.748473    
+2024-09-28T17:44:01.082410Z DEBUG qdrant::tonic: Stopping gRPC service on SIGTERM    
+2024-09-28T17:44:01.082930Z  INFO actix_server::server: SIGTERM received; starting graceful shutdown
+2024-09-28T17:44:01.083160Z DEBUG actix_server::accept: Paused accepting connections on 127.0.0.1:6333
+2024-09-28T17:44:01.083185Z  INFO actix_server::accept: Accept thread stopped
+2024-09-28T17:44:01.083188Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083146Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083464Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083455Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083574Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083563Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083388Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083422Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.085400Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.083434Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.085766Z  INFO actix_server::worker: Shutting down idle worker
+2024-09-28T17:44:01.388648Z DEBUG qdrant: Waiting for thread grpc to finish    
+2024-09-28T17:44:01.402206Z DEBUG collection::update_handler: Stopping flush worker.    
